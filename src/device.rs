@@ -132,6 +132,12 @@ trait Device {
     #[dbus_proxy(property)]
     fn temperature(&self) -> zbus::Result<f64>;
 
+    #[dbus_proxy(property)]
+    fn time_to_empty(&self) -> zbus::Result<i64>;
+
+    #[dbus_proxy(property)]
+    fn time_to_full(&self) -> zbus::Result<i64>;
+
     #[dbus_proxy(property, name = "Type")]
     fn type_(&self) -> zbus::Result<BatteryType>;
 
@@ -140,4 +146,10 @@ trait Device {
 
     #[dbus_proxy(property)]
     fn voltage(&self) -> zbus::Result<f64>;
+
+    #[dbus_proxy(property)]
+    fn warning_level(&self) -> zbus::Result<u32>;
+
+    #[dbus_proxy(property)]
+    fn update_time(&self) -> zbus::Result<u32>;
 }
